@@ -1,3 +1,5 @@
+import { FormsModule } from '@angular/forms';
+import { CustomMaterialModule } from './custom-material.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -10,7 +12,9 @@ import { AnalysisGridComponent } from './analysis-grid/analysis-grid.component';
     AnalysisGridComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
+    CustomMaterialModule
   ],
   providers: [],
   bootstrap: [AppComponent]

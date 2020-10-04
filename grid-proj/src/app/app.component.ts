@@ -1,4 +1,4 @@
-import { IAnalysisData } from './analysis-grid/grid.model';
+import { IAnalysisData, IUpdationEvent } from './analysis-grid/grid.model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  readOnly: boolean;
+  readOnly = false;
   analysisData: IAnalysisData[];
 
   ngOnInit(): void {
@@ -29,5 +29,8 @@ export class AppComponent implements OnInit {
     ];
   }
 
-  public onDataUpdate(event): void {}
+  public onDataUpdate(event: IUpdationEvent): void {
+    // TODO: Make call to backend server to save this value
+    console.log(event);
+  }
 }
