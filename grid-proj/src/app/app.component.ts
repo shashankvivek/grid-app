@@ -18,12 +18,12 @@ export class AppComponent implements OnInit {
           { key: 'C', value: 0.12, format: 'X.XXX' },
           { key: 'Si', value: 0.349, format: 'X.XX' },
           { key: 'Mi', value: 0.9, format: 'X.XX' },
-          { key: 'C', value: 0.12, format: 'X.XXX' },
-          { key: 'Si', value: 0.349, format: 'X.XX' },
-          { key: 'Mi', value: 0.9, format: 'X.XX' },
-          { key: 'C', value: 0.12, format: 'X.XXX' },
-          { key: 'Si', value: 0.349, format: 'X.XX' },
-          { key: 'Mi', value: 0.9, format: 'X.XX' },
+          // { key: 'C', value: 0.12, format: 'X.XXX' },
+          // { key: 'Si', value: 0.349, format: 'X.XX' },
+          // { key: 'Mi', value: 0.9, format: 'X.XX' },
+          // { key: 'C', value: 0.12, format: 'X.XXX' },
+          // { key: 'Si', value: 0.349, format: 'X.XX' },
+          // { key: 'Mi', value: 0.9, format: 'X.XX' },
         ],
       },
       {
@@ -32,12 +32,12 @@ export class AppComponent implements OnInit {
           { key: 'C', value: 0.141, format: 'X.XXX' },
           { key: 'Si', value: 0.45, format: 'X.XX' },
           { key: 'Mi', value: 0.77, format: 'X.XX' },
-          { key: 'C', value: 0.12, format: 'X.XXX' },
-          { key: 'Si', value: 0.349, format: 'X.XX' },
-          { key: 'Mi', value: 0.9, format: 'X.XX' },
-          { key: 'C', value: 0.12, format: 'X.XXX' },
-          { key: 'Si', value: 0.349, format: 'X.XX' },
-          { key: 'Mi', value: 0.9, format: 'X.XX' },
+          // { key: 'C', value: 0.12, format: 'X.XXX' },
+          // { key: 'Si', value: 0.349, format: 'X.XX' },
+          // { key: 'Mi', value: 0.9, format: 'X.XX' },
+          // { key: 'C', value: 0.12, format: 'X.XXX' },
+          // { key: 'Si', value: 0.349, format: 'X.XX' },
+          // { key: 'Mi', value: 0.9, format: 'X.XX' },
         ],
       },
     ];
@@ -46,5 +46,9 @@ export class AppComponent implements OnInit {
   public onDataUpdate(event: IUpdationEvent): void {
     // TODO: Make call to backend server to save this value
     console.log(event);
+  }
+
+  public toggle(): void {
+    this.readOnly = !this.readOnly;
   }
 }

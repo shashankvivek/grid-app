@@ -5,11 +5,6 @@ import { Injectable } from '@angular/core';
 export class AnalysisService {
   transformData(data: IAnalysisData[]): ITransformedData[] {
 
-    // data.forEach((element) => {
-    //   element.element_values.forEach((val) => {
-    //      val.pipeFormat = 'uu';
-    //   });
-    // });
     const transformedData: ITransformedData[] = data.map((obj) => {
       return { key: obj.key,
         element_values: obj.element_values.map(val => {
