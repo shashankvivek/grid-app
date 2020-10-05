@@ -34,10 +34,12 @@ export class AnalysisGridComponent implements OnInit, OnDestroy {
   @Output() onDataUpdate = new EventEmitter<IUpdationEvent>();
   private modelChanged: Subject<IUpdationEvent> = new Subject<IUpdationEvent>();
 
-  // TODO: make sure Min and Max have keys in same order
+  // TODO: put some check to make sure Min and Max have keys in same order
+  // else the table will break
+
+  // TODO: The textbox by default accepts some chars like "e" as per HTML standard. They have to be handled as well
 
   constructor(public analysisSvc: AnalysisService) {}
-
 
   ngOnInit(): void {
     this.modelChanged
