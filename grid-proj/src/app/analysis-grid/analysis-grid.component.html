@@ -19,6 +19,9 @@
               [attr.required]="true"
               #ngModel="ngModel"
               required
+              min="0"
+              max="1"
+              pattern="^(?:0*(?:\.\d+)?|1(\.0*)?)$"
               (ngModelChange)="changedInput($event, rows.key, data)"
               [(ngModel)]="data.value"
             />

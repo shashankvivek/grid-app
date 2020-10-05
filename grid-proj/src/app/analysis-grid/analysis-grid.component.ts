@@ -17,7 +17,7 @@ import {
   AfterViewInit,
 } from '@angular/core';
 import { Subject } from 'rxjs';
-import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { debounceTime, distinctUntilChanged, filter } from 'rxjs/operators';
 import { NgForm, Validators } from '@angular/forms';
 
 @Component({
@@ -34,16 +34,13 @@ export class AnalysisGridComponent implements OnInit, OnDestroy {
   @Output() onDataUpdate = new EventEmitter<IUpdationEvent>();
   private modelChanged: Subject<IUpdationEvent> = new Subject<IUpdationEvent>();
 
-  // TODO: put some check to make sure Min and Max have keys in same order
-  // else the table will break
-
-
   constructor(public analysisSvc: AnalysisService) {}
 
   ngOnInit(): void {
     this.modelChanged
       .pipe(
         debounceTime(1000),
+        filter(val => val.value >= 0 && val.value <= 1),
         distinctUntilChanged((val1, val2) => {
           return val1.value === val2.value;
         })
