@@ -14,3 +14,14 @@ export interface IUpdationEvent {
   elementId: string;
   value: number;
 }
+
+export interface ITransformedData {
+  key: string;
+  element_values: ITransformedElement[];
+}
+
+export interface ITransformedElement {
+  key: string;
+  value: number;
+  pipeFormat: string;
+}

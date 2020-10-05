@@ -8,7 +8,7 @@ table {
     vertical-align: top;
     border-top: 1px solid #ccc;
     padding: 10px;
-    width: 100px;
+    width: 50px;
   }
   .fix {
     position: absolute;
@@ -20,8 +20,12 @@ table {
     position: relative;
   }
   .inner {
-    overflow-x: scroll;
+    overflow-x: auto;
     overflow-y: visible;
     width: 400px; 
     margin-left: 100px;
+  }
+
+  .col{
+    width: 50px;;
   }

@@ -3,15 +3,16 @@
     <table>
       <tr>
         <th class="fix"></th>
-        <th *ngFor="let header of analysisData[0].element_values">
+        <th *ngFor="let header of tableData[0].element_values">
           {{ header.key }}
         </th>
       </tr>
-      <tr *ngFor="let rows of analysisData">
+      <tr *ngFor="let rows of tableData">
         <th class="fix">{{ rows.key }}</th>
         <td *ngFor="let data of rows.element_values">
           <ng-container *ngIf="!readOnly; else noEdit"
             ><input
+              class="col"
               type="number"
               step="any"
               (ngModelChange)="changedInput($event, rows.key, data)"
@@ -19,7 +20,7 @@
           /></ng-container>
           <!-- TODO: add error styling  -->
           <ng-template #noEdit>
-            {{ data.value }}
+            {{ data.value | number: data.pipeFormat }}
           </ng-template>
         </td>
       </tr>

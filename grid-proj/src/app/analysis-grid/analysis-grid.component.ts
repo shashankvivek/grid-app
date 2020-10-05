@@ -1,4 +1,10 @@
-import { IAnalysisData, IUpdationEvent, IElement_value } from './grid.model';
+import { AnalysisService } from './analysis.service';
+import {
+  IAnalysisData,
+  IUpdationEvent,
+  IElement_value,
+  ITransformedData,
+} from './grid.model';
 
 import {
   Component,
@@ -17,14 +23,18 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   styleUrls: ['./analysis-grid.component.scss'],
 })
 export class AnalysisGridComponent implements OnInit, OnDestroy {
+
+  tableData: ITransformedData[];
   @Input() readOnly: boolean;
-  @Input() analysisData: IAnalysisData;
+  @Input() set analysisData(data: IAnalysisData[]) {
+    this.tableData = this.analysisSvc.transformData(data);
+  }
   @Output() onDataUpdate = new EventEmitter<IUpdationEvent>();
   modelChanged: Subject<IUpdationEvent> = new Subject<IUpdationEvent>();
 
   // TODO: make sure Min and Max have keys in same order
 
-  constructor() {}
+  constructor(public analysisSvc: AnalysisService) {}
 
   ngOnInit(): void {
     this.modelChanged

@@ -1,3 +1,4 @@
+import { AnalysisService } from './analysis-grid/analysis.service';
 import { FormsModule } from '@angular/forms';
 import { CustomMaterialModule } from './custom-material.module';
 import { BrowserModule } from '@angular/platform-browser';
@@ -16,7 +17,7 @@ import { AnalysisGridComponent } from './analysis-grid/analysis-grid.component';
     FormsModule,
     CustomMaterialModule
   ],
-  providers: [],
+  providers: [AnalysisService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

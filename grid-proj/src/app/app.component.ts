@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  readOnly = false;
+  readOnly = true;
   analysisData: IAnalysisData[];
 
   ngOnInit(): void {
@@ -17,6 +17,13 @@ export class AppComponent implements OnInit {
         element_values: [
           { key: 'C', value: 0.12, format: 'X.XXX' },
           { key: 'Si', value: 0.349, format: 'X.XX' },
+          { key: 'Mi', value: 0.9, format: 'X.XX' },
+          { key: 'C', value: 0.12, format: 'X.XXX' },
+          { key: 'Si', value: 0.349, format: 'X.XX' },
+          { key: 'Mi', value: 0.9, format: 'X.XX' },
+          { key: 'C', value: 0.12, format: 'X.XXX' },
+          { key: 'Si', value: 0.349, format: 'X.XX' },
+          { key: 'Mi', value: 0.9, format: 'X.XX' },
         ],
       },
       {
@@ -24,6 +31,13 @@ export class AppComponent implements OnInit {
         element_values: [
           { key: 'C', value: 0.141, format: 'X.XXX' },
           { key: 'Si', value: 0.45, format: 'X.XX' },
+          { key: 'Mi', value: 0.77, format: 'X.XX' },
+          { key: 'C', value: 0.12, format: 'X.XXX' },
+          { key: 'Si', value: 0.349, format: 'X.XX' },
+          { key: 'Mi', value: 0.9, format: 'X.XX' },
+          { key: 'C', value: 0.12, format: 'X.XXX' },
+          { key: 'Si', value: 0.349, format: 'X.XX' },
+          { key: 'Mi', value: 0.9, format: 'X.XX' },
         ],
       },
     ];
