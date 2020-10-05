@@ -1,5 +1,6 @@
 <div class="outer">
   <div class="inner">
+    <!-- <form #dataForm="ngForm"> -->
     <table>
       <tr>
         <th class="fix"></th>
@@ -7,23 +8,28 @@
           {{ header.key }}
         </th>
       </tr>
-      <tr *ngFor="let rows of tableData">
-        <th class="fix">{{ rows.key }}</th>
-        <td *ngFor="let data of rows.element_values">
-          <ng-container *ngIf="!readOnly; else noEdit"
-            ><input
-              class="col"
+      <tr *ngFor="let rows of tableData; let j = index">
+        <th class="fix">{{ rows.key | uppercase }}</th>
+        <td *ngFor="let data of rows.element_values; let i = index">
+          <ng-container *ngIf="!readOnly; else noEdit">
+            <input
+              matInput
+              class="col form-control"
               type="number"
               step="any"
+              [attr.required]="true"
+              #ngModel="ngModel"
+              required
               (ngModelChange)="changedInput($event, rows.key, data)"
               [(ngModel)]="data.value"
-          /></ng-container>
-          <!-- TODO: add error styling  -->
+            />
+          </ng-container>
           <ng-template #noEdit>
             {{ data.value | number: data.pipeFormat }}
           </ng-template>
         </td>
       </tr>
     </table>
+    <!-- </form> -->
   </div>
 </div>

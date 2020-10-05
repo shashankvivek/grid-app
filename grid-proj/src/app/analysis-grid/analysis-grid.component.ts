@@ -13,9 +13,12 @@ import {
   Output,
   EventEmitter,
   OnDestroy,
+  ViewChild,
+  AfterViewInit,
 } from '@angular/core';
 import { Subject } from 'rxjs';
 import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
+import { NgForm, Validators } from '@angular/forms';
 
 @Component({
   selector: 'AnalysisGrid',
@@ -23,22 +26,27 @@ import { debounceTime, distinctUntilChanged } from 'rxjs/operators';
   styleUrls: ['./analysis-grid.component.scss'],
 })
 export class AnalysisGridComponent implements OnInit, OnDestroy {
-
-  tableData: ITransformedData[];
+  public tableData: ITransformedData[];
   @Input() readOnly: boolean;
   @Input() set analysisData(data: IAnalysisData[]) {
     this.tableData = this.analysisSvc.transformData(data);
   }
   @Output() onDataUpdate = new EventEmitter<IUpdationEvent>();
-  modelChanged: Subject<IUpdationEvent> = new Subject<IUpdationEvent>();
+  private modelChanged: Subject<IUpdationEvent> = new Subject<IUpdationEvent>();
 
   // TODO: make sure Min and Max have keys in same order
 
   constructor(public analysisSvc: AnalysisService) {}
 
+
   ngOnInit(): void {
     this.modelChanged
-      .pipe(debounceTime(300), distinctUntilChanged())
+      .pipe(
+        debounceTime(1000),
+        distinctUntilChanged((val1, val2) => {
+          return val1.value === val2.value;
+        })
+      )
       .subscribe((model) => {
         this.onDataUpdate.emit(model);
       });

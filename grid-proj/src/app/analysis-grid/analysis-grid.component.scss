@@ -1,31 +1,40 @@
 table {
-    table-layout: fixed; 
-    // width: 100%;
-    text-align: center;
-    *margin-left: -100px; /*ie7*/
-  }
-  td, th {
-    vertical-align: top;
-    border-top: 1px solid #ccc;
-    padding: 10px;
-    width: 60px;
-  }
-  .fix {
-    position: absolute;
-    *position: relative; /*ie7*/
-    margin-left: -100px;
-    width: 100px;
-  }
-  .outer {
-    position: relative;
-  }
-  .inner {
-    overflow-x: auto;
-    overflow-y: visible;
-    width: 400px; 
-    margin-left: 100px;
-  }
+  table-layout: fixed;
+  // width: 100%;
+  text-align: center;
+  border-collapse: collapse;
+}
 
-  .col{
-    width: 50px;;
-  }
+td,
+th {
+  vertical-align: top;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+  width: 70px;
+}
+
+.fix {
+  position: absolute;
+  left: 0;
+  border: none;
+  width: 75px;
+}
+
+.outer {
+  position: relative;
+}
+
+.inner {
+  overflow-x: auto;
+  overflow-y: visible;
+  // width: 400px; 
+  margin-left: 100px;
+}
+
+.col {
+  width: 80px;
+}
+
+.ng-invalid:not(form) {
+  border: 1px solid #eb516d;
+}
