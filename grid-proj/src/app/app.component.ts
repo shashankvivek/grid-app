@@ -7,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  readOnly = false;
+  readOnly = true;
   analysisData: IAnalysisData[];
   changedData: IUpdationEvent;
 
